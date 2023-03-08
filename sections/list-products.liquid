@@ -1,0 +1,26 @@
+<div class="list-products container">
+  <div class="row">
+    {% paginate collections.all.products by 1000 %}
+      {% for product in collections.all.products %}
+        <div class="col-12 d-flex justify-content-center">
+          <a href="{{ product.url }}">
+            {{ product.featured_image | img_url: '600x600' | img_tag: product.featured_image.alt }}
+          </a>
+        </div>
+      {% endfor %}
+    {% endpaginate %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "List Products",
+  "tag": "section",
+  "class": "list-products",
+  "presets": [
+    {
+      "name": "List Products"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,72 @@
+body {
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+}
+
+.header h1 {
+  font-style: italic;
+  font-size: 4rem;
+  margin: 0;
+
+  background: linear-gradient(97deg, rgba(255,215,28,1) 34%, rgba(203,255,205,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  background: linear-gradient(97deg, rgba(255,215,28,1) 34%, rgba(203,255,205,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header h5 {
+  margin: 0;
+  background: linear-gradient(97deg, rgba(255,215,28,1) 34%, rgba(203,255,205,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header.container {
+  height: 100vh;
+}
+
+.header .row {
+  height: 100%;
+}
+
+.header {
+  overflow: hidden;
+}
+
+.header .text {
+  z-index: 1;
+  margin: 100px 0;
+  text-align: center;
+}
+
+.header img {
+  position: absolute;
+  height: auto;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0%);
+}
+
+@media screen and (max-width: 600px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header h3 {
+    font-size: 1rem;
+  }
+
+  .header h5 {
+    font-size: 1rem;
+  }
+}
