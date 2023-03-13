@@ -47,7 +47,8 @@ if (!customElements.get('product-form')) {
             this.error = true;
             return;
           } else if (!this.cart) {
-            window.location = window.routes.cart_url;
+            // If there is no cart, redirect to cart page
+            // this can be used to update the listing
             return;
           }
 
