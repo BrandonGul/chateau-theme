@@ -57,6 +57,17 @@ body {
   transform: translate(-50%, 0%);
 }
 
+.header.product {
+  height: auto;
+}
+
+.header .product-image {
+  background: repeating-linear-gradient(45deg, pink, linen 1%);
+  padding: 30px;
+  max-width: 700px;
+  width: 100%;
+}
+
 @media screen and (max-width: 600px) {
   .header h1 {
     font-size: 2rem;
@@ -68,5 +79,9 @@ body {
 
   .header h5 {
     font-size: 1rem;
+  }
+
+  .header .product-image {
+    padding: 10px;
   }
 }
