@@ -3,22 +3,8 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title"
-        },
-        "caption": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
-            "text_style": "subtitle"
-          }
         },
         "price": {
           "type": "price"
@@ -28,9 +14,6 @@
           "settings": {
             "picker_type": "button"
           }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector"
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -43,12 +26,9 @@
         }
       },
       "block_order": [
-        "vendor",
         "title",
-        "caption",
         "price",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons",
         "description"
       ],
