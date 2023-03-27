@@ -49,6 +49,12 @@ if (!customElements.get('product-form')) {
           } else if (!this.cart) {
             // If there is no cart, redirect to cart page
             // this can be used to update the listing
+            var x = document.getElementById("product-added-info-id");
+            x.style.display = "block";
+            setTimeout(function() {
+              x.style.display= "none";
+            }, 2000);
+
             return;
           }
 

@@ -8,13 +8,13 @@
         <div class="header d-flex flex-column position-relative">
           <div class="text d-flex flex-column">
             <h1>Chateau De Lutz</h1>
-            <h5>- Home - - Photos -     - Cart -</h5>
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'title' -%}
-                  <h5>{{ product.title | escape }}</h5>
+                  <h2>{{ product.title | escape }}</h2>
               {%- endcase -%}
             {%- endfor -%}
+            <div class="header-buttons d-flex justify-content-center"><a href="/"><h5>- Home - </h5></a><a href="/cart"><h5>- Cart - </h5></a></div>
             <product-info
               id="ProductInfo-{{ section.id }}"
               data-section="{{ section.id }}"
@@ -36,67 +36,20 @@
                         price_class: 'price--large'
                       -%}
                     </div>
-                  {%- when 'description' -%}
-                    {%- if product.description != blank -%}
-                      <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                        {{ product.description }}
-                      </div>
-                    {%- endif -%}
                   {%- when 'variant_picker' -%}
                     {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
                   {%- when 'buy_buttons' -%}
                     {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
                 {%- endcase -%}
               {%- endfor -%}
+              <div class="product-added-info" id="product-added-info-id">
+                Added to the cart
+              </div>
             </product-info>
           </div>
         </div>
       </div>
     </div>
-    {% assign position = 0 %}
-    <div class="col-12 d-flex justify-content-center">
-        {% case product.media[position].media_type %}
-          {% when 'image' %}
-            <div class="product-image">
-              {{
-                product.media[position] 
-                | image_url: width: 1500 
-                | image_tag:
-                  loading: 'lazy',
-                  widths: '375, 750, 1100, 1500',
-                  alt: media.alt,
-                  style: 'position: relative; transform: none; left: 0; width: 100%; height: auto;'
-              }}
-            </div>
-            {% assign position = position| plus: 1 %}
-        {% endcase %}
-    </div>
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'product_image' -%}
-            <div class="col-12 d-flex justify-content-center">
-              {% case product.media[position].media_type %}
-                {% when 'image' %}
-                  <div class="product-image">
-                    {{
-                      product.media[position] 
-                      | image_url: width: 1500 
-                      | image_tag:
-                        loading: 'lazy',
-                        widths: '375, 750, 1100, 1500',
-                        alt: media.alt,
-                        style: 'position: relative; transform: none; left: 0; width: 100%; height: auto;'
-                    }}
-                  </div>
-                  {% assign position = position| plus: 1 %}
-              {% endcase %}
-            </div>
-          {%- when 'product_info' -%}
-            <div class="col-12 d-flex justify-content-center">
-              {{ block.settings.product_info_area }}
-            </div>
-        {%- endcase -%}
-      {%- endfor -%}
   </div>
 
   <script>
@@ -178,6 +131,40 @@
       ]
     }
     </script>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <div class="product-pane d-flex flex-column justify-content-center">
+        {% assign position = 0 %}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'product_image' -%}
+              {% case product.media[position].media_type %}
+                {% when 'image' %}
+                  <div class="product-image">
+                    {{
+                      product.media[position] 
+                      | image_url: width: 1500 
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '375, 750, 1100, 1500',
+                        alt: media.alt,
+                        style: 'position: relative; transform: none; left: 0; width: 100%; height: auto;'
+                    }}
+                  </div>
+                  {% assign position = position| plus: 1 %}
+              {% endcase %}
+            {%- when 'product_info' -%}
+              <div class="product-info">
+              {{ block.settings.product_info_area }}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
 </div>
 
 <section

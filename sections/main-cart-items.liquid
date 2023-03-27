@@ -1,5 +1,21 @@
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
+<div class="header container">
+  <div class="row">
+    <div class="col-12">
+      <div class="h-100 d-flex flex-column justify-content-center">
+        <div class="header d-flex flex-column position-relative">
+          <div class="text d-flex flex-column">
+            <h1>Chateau De Lutz</h1>
+            <h2>Your cart</h2>
+            <div class="d-flex justify-content-center"><a href="/"><h5>- Home - </h5></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <cart-items class="">
   <div class="cart__warnings">
     {%- if shop.customer_accounts_enabled and customer == null -%}
@@ -36,7 +52,7 @@
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
 
-                      <div>
+                      <div class="product-link-holder">
                         <a href="{{ item.url }}" class="cart-item-link">{{ item.product.title | escape }}</a>
                       </div>
 

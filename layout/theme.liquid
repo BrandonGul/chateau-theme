@@ -45,11 +45,11 @@
   </head>
 
   <body class="gradient">
-    {% if template != 'product' or template != 'cart' %}
+    {% if template != 'product' and template != 'cart' %}
       {% sections 'header-group' %}
     {% endif %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="MainContent" class="layout-{{ template }}" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
