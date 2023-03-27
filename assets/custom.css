@@ -238,7 +238,7 @@ product-info {
 }
 
 .product-option:last-child {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .cart-item__error-text {
@@ -325,6 +325,20 @@ product-info {
   margin-top: 20px;
   font-style: italic;
   display: none;
+}
+
+cart-remove-button {
+  margin-bottom: 10px;
+}
+
+cart-remove-button a {
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+}
+
+cart-remove-button a:hover {
+  color: red;
 }
 
 @media screen and (max-width: 600px) {

@@ -78,34 +78,7 @@
                     </div>
 
                     <div class="d-flex flex-column">
-                      <div class="cart-item__quantity-wrapper">
-                        <quantity-input class="quantity cart-quantity">
-                          <button class="quantity__button no-js-hidden" name="minus" type="button">
-                            -
-                          </button>
-                          <input
-                            class="quantity__input"
-                            data-quantity-variant-id="{{ item.variant.id }}"
-                            type="number"
-                            name="updates[]"
-                            value="{{ item.quantity }}"
-                            {% # theme-check-disable %}
-                            data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                            min="{{ item.variant.quantity_rule.min }}"
-                            {% if item.variant.quantity_rule.max != null %}
-                              max="{{ item.variant.quantity_rule.max }}"
-                            {% endif %}
-                            step="{{ item.variant.quantity_rule.increment }}"
-                            {% # theme-check-enable %}
-                            aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                            id="Quantity-{{ item.index | plus: 1 }}"
-                            data-index="{{ item.index | plus: 1 }}"
-                          >
-                          <button class="quantity__button no-js-hidden" name="plus" type="button">
-                            +
-                          </button>
-                        </quantity-input>
-
+                      <div class="cart-item__quantity-wrapper d-flex flex-column">
                         <cart-remove-button
                           id="Remove-{{ item.index | plus: 1 }}"
                           data-index="{{ item.index | plus: 1 }}"
@@ -115,8 +88,38 @@
                             class="button button--tertiary"
                             aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                           >
+                          - Remove from cart -
                           </a>
                         </cart-remove-button>
+
+                        <div>
+                          <quantity-input class="quantity cart-quantity">
+                            <button class="quantity__button no-js-hidden" name="minus" type="button">
+                              -
+                            </button>
+                            <input
+                              class="quantity__input"
+                              data-quantity-variant-id="{{ item.variant.id }}"
+                              type="number"
+                              name="updates[]"
+                              value="{{ item.quantity }}"
+                              {% # theme-check-disable %}
+                              data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                              min="{{ item.variant.quantity_rule.min }}"
+                              {% if item.variant.quantity_rule.max != null %}
+                                max="{{ item.variant.quantity_rule.max }}"
+                              {% endif %}
+                              step="{{ item.variant.quantity_rule.increment }}"
+                              {% # theme-check-enable %}
+                              aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                              id="Quantity-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
+                            >
+                            <button class="quantity__button no-js-hidden" name="plus" type="button">
+                              +
+                            </button>
+                          </quantity-input>
+                        </div>
                       </div>
                       <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
                         <small class="cart-item__error-text"></small>
