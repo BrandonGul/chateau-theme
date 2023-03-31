@@ -121,6 +121,10 @@ body {
   text-decoration: none;
 }
 
+.layout-index {
+  background: linear-gradient(154deg, #F9D8CA 0%,rgba(234,240,205,1), #F9D8CA);
+}
+
 .layout-cart { 
   background: linear-gradient(154deg, #F9D8CA 0%,rgba(234,240,205,1), #F9D8CA);
 }
@@ -386,6 +390,58 @@ cart-remove-button a:hover {
 
 .footer-social a:hover {
   color: green;
+}
+
+.list-products-section a {
+  width: 100%;
+  max-width: 800px;
+  color: black;
+}
+
+.list-products-section a:hover {
+  color: green;
+}
+
+.list-products-product {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 40px rgb(0 0 0 / 10%);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.list-products-product .list-products-product-bar{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+
+  background: linear-gradient(50deg, white, linen 20%, white 180%);
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.about-section {
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.about-section h2 {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.about-section p {
+  max-width: 800px;
+  width: 100%;
 }
 
 @media screen and (max-width: 600px) {

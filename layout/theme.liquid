@@ -45,11 +45,11 @@
   </head>
 
   <body class="gradient">
-    {% if template != 'product' and template != 'cart' %}
-      {% sections 'header-group' %}
-    {% endif %}
-
     <main id="MainContent" class="layout-{{ template }}" role="main" tabindex="-1">
+      {% if template != 'product' and template != 'cart' %}
+        {% sections 'header-group' %}
+      {% endif %}
+
       {{ content_for_layout }}
       {% sections 'footer-group' %}
     </main>
@@ -81,17 +81,6 @@
         unavailable: `{{ 'products.product.unavailable' | t }}`,
         unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
       }
-
-      window.accessibilityStrings = {
-        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
-        shareSuccess: `{{ 'general.share.success_message' | t }}`,
-        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
-        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
-      }
     </script>
-
-    {%- if settings.predictive_search_enabled -%}
-      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
   </body>
 </html>
