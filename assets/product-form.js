@@ -47,7 +47,14 @@ if (!customElements.get('product-form')) {
             this.error = true;
             return;
           } else if (!this.cart) {
-            window.location = window.routes.cart_url;
+            // If there is no cart, redirect to cart page
+            // this can be used to update the listing
+            var x = document.getElementById("product-added-info-id");
+            x.style.display = "block";
+            setTimeout(function() {
+              x.style.display= "none";
+            }, 2000);
+
             return;
           }
 

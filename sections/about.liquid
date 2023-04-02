@@ -1,5 +1,11 @@
-<div class="about-section container">
+<div class="about-section container" id="about">
   <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <p>{{ section.settings.body}}</p>
+    </div>
   </div>
 </div>
 
@@ -8,6 +14,18 @@
   "name": "About",
   "tag": "section",
   "class": "about",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "sections.about.settings.title"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "sections.about.settings.body"
+    }
+  ],
   "presets": [
     {
       "name": "About"
