@@ -7,17 +7,19 @@ body {
   font-style: italic;
   font-size: 4rem;
   margin: 0;
-
+  color: #5A7D2A;
 }
 
 .header h3 {
   font-size: 1.5rem;
   margin: 0;
+  color: #5A7D2A;
 }
 
 .header h5 {
   margin: 0;
   color: black;
+  color: #5A7D2A;
 }
 
 .header.container {
@@ -424,11 +426,13 @@ cart-remove-button a:hover {
   max-width: 800px;
   width: 100%;
   text-align: center;
+  color: #5A7D2A;
 }
 
 .about-section p {
   max-width: 800px;
   width: 100%;
+  color: #5A7D2A;
 }
 
 @media screen and (max-width: 600px) {
