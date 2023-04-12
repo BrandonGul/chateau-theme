@@ -1,0 +1,208 @@
+<div class="header container">
+  <div class="row">
+    <div class="col-12">
+      <div class="h-100 d-flex flex-column justify-content-center">
+        <div class="header d-flex flex-column position-relative">
+          <div class="text d-flex flex-column">
+            {% case template %}
+              {% when 'product' %}
+                {% if section.settings.image != blank %}
+                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
+                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">{{ product.title | escape }}</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="/"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Home -</p></a>
+                    <a href="/cart"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Cart -</p></a>
+                    <a href="/pages/sizing/#{{ product.title | replace: " ", "-" | downcase }}"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Sizing -</p></a>
+                  </div>
+                {% else %}
+                  <h1>Chateau De Lutz</h1>
+                  <h2>{{ product.title | escape }}</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="/"><p>- Home -</p></a>
+                    <a href="/cart"><p>- Cart -</p></a>
+                    <a href="/pages/sizing/#{{ product.title | replace: " ", "-" | downcase }}"><p>- Sizing -</p></a>
+                  </div>
+                {% endif %}
+
+                <product-info
+                  id="ProductInfo-{{ section.id }}"
+                  data-section="{{ section.id }}"
+                  data-url="{{ product.url }}"
+                  class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+                >
+                  {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+                  {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                      {%- when 'price' -%}
+                        <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                          {%- render 'price',
+                            product: product,
+                            use_variant: false,
+                            show_badges: false,
+                            price_class: 'price--large'
+                          -%}
+                        </div>
+                      {%- when 'variant_picker' -%}
+                        {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+                      {%- when 'buy_buttons' -%}
+                        {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
+                    {%- endcase -%}
+                  {%- endfor -%}
+                  <div class="product-added-info" id="product-added-info-id">
+                    Added to the cart
+                  </div>
+                </product-info>
+
+                <script>
+                  document.addEventListener('DOMContentLoaded', function () {
+                    function isIE() {
+                      const ua = window.navigator.userAgent;
+                      const msie = ua.indexOf('MSIE ');
+                      const trident = ua.indexOf('Trident/');
+
+                      return msie > 0 || trident > 0;
+                    }
+
+                    if (!isIE()) return;
+                    const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
+                    const noScriptInputWrapper = document.createElement('div');
+                    const variantSwitcher =
+                      document.querySelector('variant-radios[data-section="{{ section.id }}"]') ||
+                      document.querySelector('variant-selects[data-section="{{ section.id }}"]');
+                    noScriptInputWrapper.innerHTML = document.querySelector(
+                      '.product-form__noscript-wrapper-{{ section.id }}'
+                    ).textContent;
+                    variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
+
+                    document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function (event) {
+                      hiddenInput.value = event.currentTarget.value;
+                    });
+                  });
+                </script>
+
+                {%- liquid
+                  if product.selected_or_first_available_variant.featured_media
+                    assign seo_media = product.selected_or_first_available_variant.featured_media
+                  else
+                    assign seo_media = product.featured_media
+                  endif
+                -%}
+
+                <script type="application/ld+json">
+                  {
+                    "@context": "http://schema.org/",
+                    "@type": "Product",
+                    "name": {{ product.title | json }},
+                    "url": {{ request.origin | append: product.url | json }},
+                    {% if seo_media -%}
+                      "image": [
+                        {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
+                      ],
+                    {%- endif %}
+                    "description": {{ product.description | strip_html | json }},
+                    {% if product.selected_or_first_available_variant.sku != blank -%}
+                      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+                    {%- endif %}
+                    "brand": {
+                      "@type": "Brand",
+                      "name": {{ product.vendor | json }}
+                    },
+                    "offers": [
+                      {%- for variant in product.variants -%}
+                        {
+                          "@type" : "Offer",
+                          {%- if variant.sku != blank -%}
+                            "sku": {{ variant.sku | json }},
+                          {%- endif -%}
+                          {%- if variant.barcode.size == 12 -%}
+                            "gtin12": {{ variant.barcode }},
+                          {%- endif -%}
+                          {%- if variant.barcode.size == 13 -%}
+                            "gtin13": {{ variant.barcode }},
+                          {%- endif -%}
+                          {%- if variant.barcode.size == 14 -%}
+                            "gtin14": {{ variant.barcode }},
+                          {%- endif -%}
+                          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+                          "price" : {{ variant.price | divided_by: 100.00 | json }},
+                          "priceCurrency" : {{ cart.currency.iso_code | json }},
+                          "url" : {{ request.origin | append: variant.url | json }}
+                        }{% unless forloop.last %},{% endunless %}
+                      {%- endfor -%}
+                    ]
+                  }
+                </script>
+              {% when 'cart' %}
+                {% if section.settings.image != blank %}
+                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
+                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Your cart</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="/"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Home -</p></a>
+                  </div>
+                {% else %}
+                  <h1>Chateau De Lutz</h1>
+                  <h2>Your cart</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="/"><p>- Home -</p></a>
+                  </div>
+                {% endif %}
+              {% when '404' %}
+                {% if section.settings.image != blank %}
+                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
+                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Page not found</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="/"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Home -</p></a>
+                    <a href="/cart"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Cart -</p></a>
+                  </div>
+                {% else %}
+                  <h1>Chateau De Lutz</h1>
+                  <h2>Page not found</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="/"><p>- Home -</p></a>
+                    <a href="/cart"><p>- Cart -</p></a>
+                  </div>
+                {% endif %}
+              {% when 'page.size' %}
+                {% if section.settings.image != blank %}
+                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
+                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Sizing</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="/"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Home -</p></a>
+                    <a href="/cart"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Cart -</p></a>
+                  </div>
+                {% else %}
+                  <h1>Chateau De Lutz</h1>
+                  <h2>Sizing</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="/"><p>- Home -</p></a>
+                    <a href="/cart"><p>- Cart -</p></a>
+                  </div>
+                {% endif %}
+              {% else %}
+                {% if section.settings.image != blank %}
+                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
+                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Unapologetically Ours.</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="#about"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- About -</p></a>
+                    <a href="#products"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Products -</p></a>
+                    <a href="/cart"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Cart -</p></a>
+                    <a href="/pages/sizing"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Sizing -</p></a>
+                  </div>
+                {% else %}
+                  <h1>Chateau De Lutz</h1>
+                  <h2>Unapologetically Ours.</h2>
+                  <div class="header-buttons d-flex justify-content-center">
+                    <a href="#about"><p>- About -</p></a>
+                    <a href="#products"><p>- Products -</p></a>
+                    <a href="/cart"><p>- Cart -</p></a>
+                    <a href="/pages/sizing"><p>- Sizing -</p></a>
+                  </div>
+                {% endif %}
+            {% endcase%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

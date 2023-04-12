@@ -1,20 +1,6 @@
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
-<div class="header container">
-  <div class="row">
-    <div class="col-12">
-      <div class="h-100 d-flex flex-column justify-content-center">
-        <div class="header d-flex flex-column position-relative">
-          <div class="text d-flex flex-column">
-            <h1>Chateau De Lutz</h1>
-            <h2>Your cart</h2>
-            <div class="d-flex justify-content-center"><a href="/"><h5>- Home - </h5></a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{% render 'header' %}
 
 <cart-items class="">
   <div class="cart__warnings">
@@ -143,6 +129,13 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-cart-items.name"
+  "name": "t:sections.main-cart-items.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    }
+  ]
 }
 {% endschema %}

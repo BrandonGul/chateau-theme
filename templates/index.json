@@ -1,6 +1,14 @@
 {
   "sections": {
+    "products": {
+      "type": "list-products"
+    },
+    "about": {
+      "type": "about"
+    }
   },
   "order": [
+    "products",
+    "about"
   ]
 }

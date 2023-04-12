@@ -1,0 +1,83 @@
+{% render "header" %}
+
+<div class="size container">
+  <div class="row">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'title' -%}
+          <div class="col-12" id="{{ block.settings.size_product_title_id }}">
+            <h3>{{ block.settings.size_product_title }}</h3>
+          </div>
+        {%- when 'variant' -%}
+          <div class="col-12">
+            <strong class="variant">{{ block.settings.size_product_variant }}</strong>
+          </div>
+        {%- when 'mesurement' -%}
+          <div class="col-12">
+            <p class="mesurement">{{ block.settings.size_product_mesurement }}</p>
+          </div>
+        {%- when 'divider' -%}
+          <div class="col-12">
+            <div class="divider"></div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Info",
+  "blocks": [
+    {
+      "name": "Title",
+      "type": "title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "size_product_title",
+          "label": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "size_product_title_id",
+          "label": "Product Title ID"
+        }
+      ]
+    },
+    {
+      "name": "Variant",
+      "type": "variant",
+      "settings": [
+        {
+          "type": "text",
+          "id": "size_product_variant",
+          "label": "Product Variant"
+        }
+      ]
+    },
+    {
+      "name": "Mesurement",
+      "type": "mesurement",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "size_product_mesurement",
+          "label": "Product Mesurement"
+        }
+      ]
+    },
+    {
+      "name": "Divider",
+      "type": "divider"
+    }
+  ],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "background image"
+    }
+  ]
+}
+{% endschema %}

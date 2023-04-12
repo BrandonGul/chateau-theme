@@ -45,8 +45,8 @@
   </head>
 
   <body class="gradient">
-    <main id="MainContent" class="layout-{{ template }}" role="main" tabindex="-1">
-      {% if template != 'product' and template != 'cart' %}
+    <main id="MainContent" class="layout {{ template | replace: ".", "-" }}" role="main" tabindex="-1">
+      {% if template == 'index' %}
         {% sections 'header-group' %}
       {% endif %}
 

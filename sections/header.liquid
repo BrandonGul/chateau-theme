@@ -1,28 +1,14 @@
-<div class="header container">
-  <div class="row">
-    <div class="col-12">
-      <div class="h-100 d-flex flex-column justify-content-center">
-        <div class="header d-flex flex-column position-relative">
-          <div class="text d-flex flex-column">
-            <h1>Chateau De Lutz</h1>
-            <h3>Unapologetically Ours.</h3>
-            <div class="header-buttons d-flex justify-content-center"><a href="#about"><h5>- About -</h5></a><a href="#products"><h5>- Products -</h5></a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{% render "header" %}
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
+  "name": "Header",
   "class": "section-header",
   "settings": [
     {
       "type": "image_picker",
       "id": "image",
-      "label": "t:sections.image-banner.settings.image.label"
+      "label": "Background Image"
     }
   ]
 }
