@@ -1,28 +1,28 @@
+{% assign hasVideo = '' %}
+{% if section.settings.video != blank %}
+  {% assign hasVideo = 'video' %}
+{% endif %}
+
 <div class="header container">
   <div class="row">
     <div class="col-12">
       <div class="h-100 d-flex flex-column justify-content-center">
-        <div class="header d-flex flex-column position-relative">
+        <div class="header {{ hasVideo }} d-flex flex-column position-relative">
+          {% if section.settings.video != blank %}
+            <div class="header decoration d-flex position-absolute">
+              {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+            </div>
+          {% endif %}
           <div class="text d-flex flex-column">
             {% case template %}
               {% when 'product' %}
-                {% if section.settings.image != blank %}
-                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
-                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">{{ product.title | escape }}</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="/"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Home -</p></a>
-                    <a href="/cart"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Cart -</p></a>
-                    <a href="/pages/sizing/#{{ product.title | replace: " ", "-" | downcase }}"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Sizing -</p></a>
-                  </div>
-                {% else %}
-                  <h1>Chateau De Lutz</h1>
-                  <h2>{{ product.title | escape }}</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="/"><p>- Home -</p></a>
-                    <a href="/cart"><p>- Cart -</p></a>
-                    <a href="/pages/sizing/#{{ product.title | replace: " ", "-" | downcase }}"><p>- Sizing -</p></a>
-                  </div>
-                {% endif %}
+                <h1>Chateau De Lutz</h1>
+                <h2>{{ product.title | escape }}</h2>
+                <div class="header-buttons d-flex justify-content-center">
+                  <a href="/"><p>- Home -</p></a>
+                  <a href="/cart"><p>- Cart -</p></a>
+                  <a href="/pages/sizing/#{{ product.title | replace: " ", "-" | downcase }}"><p>- Sizing -</p></a>
+                </div>
 
                 <product-info
                   id="ProductInfo-{{ section.id }}"
@@ -134,71 +134,34 @@
                   }
                 </script>
               {% when 'cart' %}
-                {% if section.settings.image != blank %}
-                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
-                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Your cart</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="/"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Home -</p></a>
-                  </div>
-                {% else %}
-                  <h1>Chateau De Lutz</h1>
-                  <h2>Your cart</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="/"><p>- Home -</p></a>
-                  </div>
-                {% endif %}
+                <h1>Chateau De Lutz</h1>
+                <h2>Your cart</h2>
+                <div class="header-buttons d-flex justify-content-center">
+                  <a href="/"><p>- Home -</p></a>
+                </div>
               {% when '404' %}
-                {% if section.settings.image != blank %}
-                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
-                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Page not found</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="/"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Home -</p></a>
-                    <a href="/cart"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Cart -</p></a>
-                  </div>
-                {% else %}
-                  <h1>Chateau De Lutz</h1>
-                  <h2>Page not found</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="/"><p>- Home -</p></a>
-                    <a href="/cart"><p>- Cart -</p></a>
-                  </div>
-                {% endif %}
+                <h1>Chateau De Lutz</h1>
+                <h2>Page not found</h2>
+                <div class="header-buttons d-flex justify-content-center">
+                  <a href="/"><p>- Home -</p></a>
+                  <a href="/cart"><p>- Cart -</p></a>
+                </div>
               {% when 'page.size' %}
-                {% if section.settings.image != blank %}
-                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
-                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Sizing</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="/"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Home -</p></a>
-                    <a href="/cart"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Cart -</p></a>
-                  </div>
-                {% else %}
-                  <h1>Chateau De Lutz</h1>
-                  <h2>Sizing</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="/"><p>- Home -</p></a>
-                    <a href="/cart"><p>- Cart -</p></a>
-                  </div>
-                {% endif %}
+                <h1>Chateau De Lutz</h1>
+                <h2>Sizing</h2>
+                <div class="header-buttons d-flex justify-content-center">
+                  <a href="/"><p>- Home -</p></a>
+                  <a href="/cart"><p>- Cart -</p></a>
+                </div>
               {% else %}
-                {% if section.settings.image != blank %}
-                  <h1 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Chateau De Lutz</h1>
-                  <h2 class="animation" style="background-image: url({{ section.settings.image | img_url }})">Unapologetically Ours.</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="#about"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- About -</p></a>
-                    <a href="#products"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Products -</p></a>
-                    <a href="/cart"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Cart -</p></a>
-                    <a href="/pages/sizing"><p class="animation" style="background-image: url({{ section.settings.image | img_url }})">- Sizing -</p></a>
-                  </div>
-                {% else %}
-                  <h1>Chateau De Lutz</h1>
-                  <h2>Unapologetically Ours.</h2>
-                  <div class="header-buttons d-flex justify-content-center">
-                    <a href="#about"><p>- About -</p></a>
-                    <a href="#products"><p>- Products -</p></a>
-                    <a href="/cart"><p>- Cart -</p></a>
-                    <a href="/pages/sizing"><p>- Sizing -</p></a>
-                  </div>
-                {% endif %}
+                <h1>Chateau De Lutz</h1>
+                <h2>Unapologetically Ours.</h2>
+                <div class="header-buttons d-flex justify-content-center">
+                  <a href="#about"><p>- About -</p></a>
+                  <a href="#products"><p>- Products -</p></a>
+                  <a href="/cart"><p>- Cart -</p></a>
+                  <a href="/pages/sizing"><p>- Sizing -</p></a>
+                </div>
             {% endcase%}
           </div>
         </div>
