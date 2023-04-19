@@ -76,6 +76,19 @@ body {
   text-align: center;
 }
 
+.header.video .text {
+  margin: 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.header.video .text .header-buttons {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
 .header.product {
   height: auto;
 }
@@ -125,9 +138,6 @@ body {
   font-size: 1.25rem;
 }
 
-.product-info h2 {
-}
-
 .header a {
   text-decoration: none;
 }
@@ -138,8 +148,12 @@ body {
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
   background-clip: unset;
-  color: green;
+  color: rgba(255,215,28,1);
   text-decoration: none;
+}
+
+.header.video a:hover p {
+  color: #569d8c;
 }
 
 .layout.cart .header.container, .layout.product .header.container, .layout.page-size .header.container{
@@ -191,19 +205,11 @@ fieldset label:last-child {
 }
 
 fieldset input[type="radio"]:checked+label {
-  border: 2px solid green;
-}
-
-fieldset input[type="radio"]:checked+label:hover {
-  color: black;
-}
-
-fieldset input[type="radio"]:checked+label {
-  border: 2px solid green;
+  color: #5A7D2A;
 }
 
 fieldset label:hover {
-  color: green;
+  color: #5A7D2A;
 }
 
 product-info {
@@ -228,7 +234,7 @@ product-info {
 }
 
 .product-form button:hover {
-  color: green;
+  color: #5A7D2A;
 }
 
 .product-form button:disabled {
@@ -278,7 +284,7 @@ product-info {
 }
 
 .cart-product .cart-item-link:hover {
-  color: green;
+  color: #5A7D2A;
 }
 
 .cart__footer {
@@ -309,7 +315,7 @@ product-info {
 }
 
 .cart__footer button:hover {
-  color: green;
+  color: #5A7D2A;
 }
 
 .subtotal {
@@ -333,7 +339,7 @@ cart-remove-button a {
 }
 
 cart-remove-button a:hover {
-  color: green;
+  color: #5A7D2A;
 }
 
 .footer-bar {
@@ -363,7 +369,7 @@ cart-remove-button a:hover {
 }
 
 .footer-email span a:hover {
-  color: green;
+  color: #5A7D2A;
 }
 
 .footer-social {
@@ -377,7 +383,7 @@ cart-remove-button a:hover {
 }
 
 .footer-social a:hover {
-  color: green;
+  color: #5A7D2A;
 }
 
 .list-products-section a {
@@ -387,7 +393,7 @@ cart-remove-button a:hover {
 }
 
 .list-products-section a:hover {
-  color: green;
+  color: #5A7D2A;
 }
 
 .list-products-product {
@@ -507,5 +513,17 @@ cart-remove-button a:hover {
 
   .size {
     margin-bottom: 50px;
+  }
+
+  .header.video .text {
+    margin: 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+  }
+
+  .header.video .text .header-buttons {
+    position: relative;
+    bottom: unset;
   }
 }
