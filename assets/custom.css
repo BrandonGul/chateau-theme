@@ -133,8 +133,8 @@ body {
 }
 
 .product-info {
-  margin-top: 80px;
-  margin-bottom: 100px;
+  margin-top: 30px;
+  margin-bottom: 50px;
   font-size: 1.25rem;
 }
 
@@ -501,8 +501,8 @@ cart-remove-button a:hover {
   }
 
   .product-info {
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-bottom: 20px;
   }
 
   .cart__footer h2 {
