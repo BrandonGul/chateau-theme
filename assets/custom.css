@@ -459,6 +459,12 @@ cart-remove-button a:hover {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 800px) {
+  .header.container {
+    height: unset !important;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .header h1 {
     font-size: 2rem;
@@ -478,6 +484,10 @@ cart-remove-button a:hover {
 
   .header .product-image {
     padding: 10px;
+  }
+
+  .header.container {
+    height: unset !important;
   }
 
   .cart-product {
@@ -525,5 +535,29 @@ cart-remove-button a:hover {
   .header.video .text .header-buttons {
     position: relative;
     bottom: unset;
+  }
+
+  fieldset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  fieldset label {
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+
+  fieldset label:last-child {
+    margin-bottom: 0px;
+  }
+
+  .product-form button {
+    font-size: 1.3rem;
+  }
+
+  .cart__footer button {
+    font-size: 1.3rem;
   }
 }
