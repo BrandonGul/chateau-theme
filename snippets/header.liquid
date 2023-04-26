@@ -1,9 +1,9 @@
-{% assign hasVideo = '' %}
+{% assign hasVideo = 'no-video' %}
 {% if section.settings.video != blank %}
   {% assign hasVideo = 'video' %}
 {% endif %}
 
-<div class="header container">
+<div class="header container {{ hasVideo }}">
   <div class="row">
     <div class="col-12">
       <div class="h-100 d-flex flex-column justify-content-center">
