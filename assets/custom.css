@@ -527,9 +527,13 @@ cart-remove-button a:hover {
 
   .header.video .text {
     margin: 0;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     position: relative;
+  }
+
+  .header.video .text .header-buttons {
+    bottom: 10px;
   }
 
   fieldset {
@@ -554,13 +558,5 @@ cart-remove-button a:hover {
 
   .cart__footer button {
     font-size: 1.3rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .header.decoration video {
-    width: auto;
-    height: 100%;
-    border-radius: 10px;
   }
 }
