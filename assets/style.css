@@ -1,0 +1,22 @@
+:root {
+  --black: #1B1A19;
+  --grey: #F3F3F3
+}
+
+* {
+  color: var(--black);
+  font-family: EB Garamond;
+  line-height: normal;
+}
+
+body {
+  background: var(--grey);
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-style: italic;
+  font-weight: 800;
+}

@@ -1,0 +1,19 @@
+{{ 'design.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.video != blank %}
+  {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Design",
+  "class": "design",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background Video"
+    }
+  ]
+}
+{% endschema %}

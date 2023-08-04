@@ -1,0 +1,32 @@
+.header {
+  background: var(--grey);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 6px 15px;
+  border: 1px solid var(--black);
+}
+
+.header.controls {
+  display: flex;
+  align-items: center;
+  border: none;
+}
+
+.header.controls a {
+  color: var(--black);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.header.controls a:hover {
+  text-decoration: underline;
+}
+
+.header.controls a.bag {
+  height: 24px;
+  width: 24px;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath id='Vector 3' d='M22 21.5H16M22 21.5L18.5 14.5M22 21.5V14.5V2L19 3M16 21.5L18.5 14.5M16 21.5H3L2.5 21L2 20.5L2.5 14L2 2L5 3L9 1.5L13 3L16 1.5M16 21.5L15.5 14.5L16 1.5M16 1.5L19 3M18.5 14.5L19 3' stroke='%231B1A19' stroke-width='2'/%3E%3C/svg%3E") no-repeat center center / cover;
+}

@@ -1,15 +1,17 @@
-{% render "header" %}
+{{ 'header.css' | asset_url | stylesheet_tag }}
+
+<div class="header">
+  <h1>CHATEAU DE LUTZ</h1>
+  <div class="header controls">
+    <a href="#">SHOP</a>
+    <a href="#">INFO</a>
+    <a class="bag" href="#"></a>
+  </div>
+</div>
 
 {% schema %}
 {
   "name": "Header",
-  "class": "section-header",
-  "settings": [
-    {
-      "type": "video",
-      "id": "video",
-      "label": "Background Video"
-    }
-  ]
+  "class": "section-header"
 }
 {% endschema %}
