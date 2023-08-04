@@ -1,6 +1,6 @@
 <div class="list-products-section container" id="products">
   <div class="row">
-    {% paginate collections.all.products by 1000 %}
+    {% paginate collections.all.products by 50 %}
       {% for product in collections.all.products %}
         <div class="col-12 d-flex justify-content-center">
           <a href="{{ product.url }}">
