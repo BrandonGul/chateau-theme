@@ -7,6 +7,8 @@
   color: var(--black);
   font-family: EB Garamond;
   line-height: normal;
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
 body {
@@ -19,4 +21,9 @@ h1 {
   font-size: 2.25rem;
   font-style: italic;
   font-weight: 800;
+}
+
+.bold {
+  font-size: 1.25rem;
+  font-weight: 700;
 }

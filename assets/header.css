@@ -1,3 +1,7 @@
+.section-header {
+  margin-bottom: 45px;
+}
+
 .header {
   background: var(--grey);
   display: flex;
