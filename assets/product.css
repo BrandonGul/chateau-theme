@@ -1,0 +1,170 @@
+.main-product {
+  display: flex;
+  justify-content: center;
+}
+
+.product {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1440px;
+}
+
+.product .images {
+  max-width: 899px;
+  flex-grow: 1;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-content: start;
+}
+
+.product .images .small-product-image {
+  cursor: zoom-in;
+}
+
+.product .info {
+  width: 100%;
+  max-width: 521px;
+  padding: 10px;
+}
+
+.product .info .input {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--black);
+  width: 100%;
+}
+
+.product .price-color {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.product fieldset {
+  display: flex;
+  gap: 10px;
+}
+
+.product fieldset label:hover {
+  cursor: pointer;
+}
+
+.product fieldset input[type=radio] {
+  display: none;
+}
+
+.product fieldset input[type=radio]:checked + label {
+  color: red;
+}
+
+.product fieldset label { 
+  padding: 4px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--black);
+  font-weight: 700;
+}
+
+.product .product-form {
+  width: 100%;
+}
+
+.product button {
+  display: flex;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--black);
+  width: 100%;
+}
+
+.product button:hover {
+  cursor: pointer;
+}
+
+.product button span {
+  font-weight: 700;
+}
+
+.product .description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product .description div {
+  display: flex;
+  flex-direction: column;
+}
+
+.product .description span {
+  color: var(--black);
+  font-weight: 800;
+}
+
+.image-display {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: fit-content;
+  background: var(--grey);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
+.image-display .exit {
+  position: sticky;
+  top: 0;
+  height: 0;
+  width: 100%;
+}
+
+.image-display .exit-button {
+  position: absolute;
+  background: linen;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  padding: 4px 12px;
+  background: var(--grey);
+  border-radius: 5px;
+  border: 1px solid var(--black);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .product {
+    flex-direction: column-reverse;
+  }
+
+  .product .info {
+    max-width: 100%;
+  }
+
+  .product .images {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .product .images {
+    grid-template-columns: auto auto;
+  }
+
+  .image-display {
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .product .images {
+    grid-template-columns: auto;
+  }
+}
