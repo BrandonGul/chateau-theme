@@ -68,7 +68,7 @@ class CartItems extends HTMLElement {
       {
         id: 'main-cart-footer',
         section: document.getElementById('main-cart-footer').dataset.id,
-        selector: '.js-contents'
+        selector: '.js-contents-total'
       }
     ];
   }
@@ -121,6 +121,7 @@ class CartItems extends HTMLElement {
           }
         }
         this.updateLiveRegions(line, message);
+        document.getElementById("quantity-holder").textContent = updatedValue.toString();
 
         const lineItem = document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
         if (lineItem && lineItem.querySelector(`[name="${name}"]`)) {
