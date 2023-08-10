@@ -2,6 +2,27 @@
 
 {% if section.settings.video != blank %}
   {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+{% else if section.settings.image != blank %}
+    {{
+      section.settings.image
+      | image_url: width: 1500 
+      | image_tag:
+        loading: 'lazy',
+        widths: '375, 750, 1100, 1500',
+        alt: media.alt
+    }}
+{% endif %}
+
+{% if section.settings.icon != blank %}
+    {{
+      section.settings. icon
+      | image_url: width: 30 
+      | image_tag:
+        class: "icon",
+        loading: 'lazy',
+        widths: '10, 20, 30',
+        alt: media.alt
+    }}
 {% endif %}
 
 {% schema %}
@@ -13,6 +34,16 @@
       "type": "video",
       "id": "video",
       "label": "Background Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Background Icon"
     }
   ]
 }

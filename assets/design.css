@@ -1,14 +1,28 @@
 .shopify-section.design {
   position: absolute;
   z-index: -1;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   top: 0;
   overflow: hidden;
 }
 
-video {
+.design video {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.design img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.design .icon {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  bottom: 20px;
+  right: 20px;
 }
