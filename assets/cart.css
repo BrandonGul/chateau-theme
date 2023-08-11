@@ -74,6 +74,11 @@
   font-size: 0.875rem;
 }
 
+.cart-product cart-remove-button a:hover div {
+  background: var(--black);
+  color: var(--grey);
+}
+
 .cart-product quantity-input {
   display: flex;
   gap: 9px;
@@ -97,6 +102,14 @@
 
 .cart-product quantity-input button .plus {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='16' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16V2M2 9H16' stroke='black'/%3E%3C/svg%3E");
+}
+
+.cart-product quantity-input button:hover .minus {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='16' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 9.5H2' stroke='%23F3F3F3'/%3E%3C/svg%3E");
+}
+
+.cart-product quantity-input button:hover .plus {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='16' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16V2M2 9H16' stroke='%23F3F3F3'/%3E%3C/svg%3E");
 }
 
 .cart .total {

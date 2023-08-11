@@ -1,1 +1,13 @@
-{% render 'header' %}
+{{ '404.css' | asset_url | stylesheet_tag }}
+
+<div class="holder">
+  <div class="bold">404</div>
+  <div class="">This page does not exist. Please return to the homepage via clicking our logo</div>
+</div>
+
+{% schema %}
+{
+  "name": "404",
+  "class": "not-found"
+}
+{% endschema %}

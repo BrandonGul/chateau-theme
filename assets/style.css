@@ -1,6 +1,7 @@
 :root {
   --black: #1B1A19;
-  --grey: #F3F3F3
+  --grey: #F3F3F3;
+  --anchor: #9CBAB1;
 }
 
 * {
