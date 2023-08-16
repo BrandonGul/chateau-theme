@@ -2,7 +2,62 @@
   "sections": {
     "info": {
       "type": "info",
-      "settings": {}
+      "blocks": {
+        "99df9279-48f9-4ee1-809c-706ada4a7261": {
+          "type": "info",
+          "settings": {
+            "section-header": "Our story",
+            "section-main": "We started Chateau De Lutz with a clear goal to create things that we want to exist where we live for everyone. One of our design philosophies is fewer better things, things designed with intention behind them. We believe that a garment designed for a purpose will always look more natural and have better form than something made purely for aesthetic purposes.\n\nFrom design, prototyping, manufacturing, web development, and marketing. We have complete in-house control over every aspect of a product and not many companies can say that. We live in Chicago and that’s where everything is made. Right here in the city. We will continue to grow our production right here and look forward to the future.\n<br><br>\nWe make things that we believe are important. Free from any creative restrictions. Without compromise. Unapologetically ours for everyone to enjoy.\n<br><br>\nThat’s our goal. We hope you come along for the ride.",
+            "section-url-text": "",
+            "section-url": ""
+          }
+        },
+        "1505c93a-b4b7-4e7f-8f7d-1824e04b622c": {
+          "type": "info",
+          "settings": {
+            "section-header": "FAQ",
+            "section-main": "How did you come up with the name?\n<br>\nThe name is a bit of a inside joke. When we first started living in Chicago we lived in this very run down apartment. We’re talking paint coming off the walls, things not working properly... etc. So we decided to give it a grand name when referring to it. A name that sounded big and expensive, a name that far exceeded our little hole in the wall apartment. So we started lovingly referring to our place as Chateau De Lutz.\n<br><br>\nAnd when the time came to name the company we had the perfect one sitting around. It symbolizes the start of something new in a place that was new for us. A place with endless possibilities, where we controlled the outcome. Our place, our Chateau De Lutz\n<br><br>\nDo you make things in Chicago?\n<br>\nYes! that is one of our main goals. To manufacture everything where we live right here in Chicago. We will continue to expand our offerings of garments and products designed and made right here in Chicago. If we do sell anything that is not made by us we will clearly state it in the items description!",
+            "section-url-text": "",
+            "section-url": ""
+          }
+        },
+        "83dfac1c-b637-42ba-a35b-3a8d18e75623": {
+          "type": "info",
+          "settings": {
+            "section-header": "CONTACT",
+            "section-main": "Please reach out to us via email\n<br>",
+            "section-url-text": "ChateauDeLutz@gmail.com",
+            "section-url": "mailto:Chateaudelutz@gmail.com"
+          }
+        },
+        "b4aa580a-1008-4811-b617-536d1cbac6e6": {
+          "type": "info",
+          "settings": {
+            "section-header": "SOCIALS",
+            "section-main": "Instagram<br>\n<a href=\"https:\/\/www.instagram.com\/chateaudelutz\/\">@ChateauDeLutz<\/a>\n<br><br>\nTikTok<br>\n<a href=\"https:\/\/www.tiktok.com\/@chateaudelutz\">@ChateauDeLutz<\/a>",
+            "section-url-text": "",
+            "section-url": ""
+          }
+        },
+        "531e1032-ce6b-464d-afeb-b873300bb770": {
+          "type": "info",
+          "settings": {
+            "section-header": "",
+            "section-main": "",
+            "section-url-text": "",
+            "section-url": ""
+          }
+        }
+      },
+      "block_order": [
+        "99df9279-48f9-4ee1-809c-706ada4a7261",
+        "1505c93a-b4b7-4e7f-8f7d-1824e04b622c",
+        "83dfac1c-b637-42ba-a35b-3a8d18e75623",
+        "b4aa580a-1008-4811-b617-536d1cbac6e6",
+        "531e1032-ce6b-464d-afeb-b873300bb770"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
