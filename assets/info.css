@@ -34,3 +34,7 @@
 .info .holder .section .main a:hover {
   text-decoration: underline;
 }
+
+.info .holder .section .main strong {
+  font-weight: 700;
+}

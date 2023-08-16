@@ -5,11 +5,16 @@
   <div class="controls">
     <a href="/pages/shop">SHOP</a>
     <a href="/pages/info">INFO</a>
-    {% if cart.item_count > 0 %}
-      <a id="header-bag-icon" class="bag active" href="/cart"></a>
-    {% else %}
-      <a id="header-bag-icon" class="bag" href="/cart"></a>
-    {% endif %}
+    <a href="/cart">
+      <div class="bag-holder">
+        <div class="text">BAG</div>
+        {% if cart.item_count > 0 %}
+          <div id="header-bag-icon" class="bag active" href="/cart"></div>
+        {% else %}
+          <div id="header-bag-icon" class="bag" href="/cart"></div>
+        {% endif %}
+      </div>
+    </a>
   </div>
 </div>
 
