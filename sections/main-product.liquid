@@ -25,7 +25,7 @@
       {%- assign product_form_id = 'product-form-' | append: section.id -%}
       <div class="bold title">{{ product.title | upcase }}</div>
       <div class="price-color">
-        <div>{{ product.options_by_name['Color'].values[0] }}Sky Blue</div>
+        <div>{{ product.options_by_name['Color'].values[0] }}</div>
         {%- render 'price',
           product: product,
           use_variant: false,

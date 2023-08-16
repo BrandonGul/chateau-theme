@@ -24,7 +24,6 @@
 }
 
 .product .info {
-  width: 100%;
   max-width: 521px;
   padding: 10px;
 }
@@ -37,7 +36,6 @@
   gap: 10px;
   border-radius: 5px;
   border: 1px solid var(--black);
-  width: 100%;
 }
 
 .product .price-color {
@@ -49,10 +47,15 @@
 .product fieldset {
   display: flex;
   gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 .product fieldset label:hover {
   cursor: pointer;
+  background: var(--black);
+  color: var(--grey);
 }
 
 .product fieldset input[type=radio] {
@@ -60,7 +63,8 @@
 }
 
 .product fieldset input[type=radio]:checked + label {
-  color: red;
+  background: var(--black);
+  color: var(--grey);
 }
 
 .product fieldset label { 
@@ -85,6 +89,10 @@
 
 .product button:hover {
   cursor: pointer;
+}
+
+.product button:hover span {
+  color: var(--grey);
 }
 
 .product button span {

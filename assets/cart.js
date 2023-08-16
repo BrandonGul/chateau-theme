@@ -98,6 +98,11 @@ class CartItems extends HTMLElement {
           return;
         }
 
+        var bag = document.getElementById("header-bag-icon");
+        if (parsedState.items.length < 1) {
+          bag.classList.remove("active");
+        }
+
         this.classList.toggle('is-empty', parsedState.item_count === 0);
         const cartDrawerWrapper = document.querySelector('cart-drawer');
         const cartFooter = document.getElementById('main-cart-footer');
@@ -121,7 +126,11 @@ class CartItems extends HTMLElement {
           }
         }
         this.updateLiveRegions(line, message);
-        document.getElementById("quantity-holder").textContent = updatedValue.toString();
+        var quant = document.getElementById("quantity-holder");
+
+        if (quant) {
+          quant.textContent = updatedValue.toString();
+        }
 
         const lineItem = document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
         if (lineItem && lineItem.querySelector(`[name="${name}"]`)) {
