@@ -90,6 +90,7 @@
 
 .product button:hover {
   cursor: pointer;
+  background: var(--black);
 }
 
 .product button:hover span {

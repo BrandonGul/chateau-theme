@@ -130,6 +130,7 @@
   border: 1px solid #000;
   font-weight: 700;
   width: 100%;
+  background: var(--grey);
 }
 
 @media screen and (max-width: 800px) {
