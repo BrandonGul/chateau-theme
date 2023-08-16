@@ -1,5 +1,6 @@
 {{ 'design.css' | asset_url | stylesheet_tag }}
 
+<a href="/pages/shop">
 {% if section.settings.video != blank %}
   {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
 {% else if section.settings.image != blank %}
@@ -24,6 +25,7 @@
         alt: media.alt
     }}
 {% endif %}
+</a>
 
 {% schema %}
 {
