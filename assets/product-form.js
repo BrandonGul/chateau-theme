@@ -47,8 +47,10 @@ if (!customElements.get('product-form')) {
             this.error = true;
             return;
           } else if (!this.cart) {
-            // If there is no cart, redirect to cart page
-            // this can be used to update the listing
+            this.submitButton.querySelector('span').textContent = "Added to bag!";
+            setTimeout(() => {
+              this.submitButton.querySelector('span').textContent = "Add to bag";
+            }, 1000);
             
             var bag = document.getElementById("header-bag-icon");
             fetch(window.Shopify.routes.root + 'cart.js')
@@ -94,6 +96,10 @@ if (!customElements.get('product-form')) {
 
       if (errorMessage) {
         this.errorMessage.textContent = errorMessage;
+
+        setTimeout(() => {
+          this.errorMessage.textContent = "";
+        }, 2000);
       }
     }
   });

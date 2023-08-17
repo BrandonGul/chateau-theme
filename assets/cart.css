@@ -89,6 +89,11 @@
   padding: 4px 12px;
   border-radius: 5px;
   border: 1px solid #000;
+  background: var(--grey);
+}
+
+.cart-product quantity-input button:hover {
+  background: var(--black);
 }
 
 .cart-product quantity-input button div {
@@ -132,6 +137,10 @@
   font-weight: 700;
   width: 100%;
   background: var(--grey);
+}
+
+.cart .total .checkout button:hover {
+  background: var(--black);
 }
 
 @media screen and (max-width: 800px) {
